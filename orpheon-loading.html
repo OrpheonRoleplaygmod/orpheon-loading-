@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>ORPHEON ROLEPLAY - HARDCORE</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&family=UnifrakturCook:wght@700&family=Press+Start+2P&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
+            background: linear-gradient(rgba(15,0,0,0.98), rgba(25,0,0,0.95)), url('https://i.imgur.com/VOTREIMAGECHARGEMENT.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #ddd;
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, rgba(139,0,0,0.3) 0%, transparent 70%);
+            animation: bloodFog 8s linear infinite;
+        }
+
+        @keyframes bloodFog {
+            0% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.7; }
+            100% { opacity: 0.4; transform: scale(1.05); }
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+            width: 90%;
+        }
+
+        h1 {
+            font-family: 'Creepster', cursive;
+            font-size: 68px;
+            color: #c0392b;
+            text-shadow: 0 0 40px #c0392b, 6px 6px 0 #000, -6px -6px 0 #000;
+            margin: 0 0 10px 0;
+            animation: titleExplosion 1.5s infinite alternate, glowBlood 2s infinite;
+            letter-spacing: 6px;
+        }
+
+        @keyframes titleExplosion {
+            from { transform: scale(0.95) rotate(-3deg); }
+            to { transform: scale(1.05) rotate(3deg); }
+        }
+
+        @keyframes glowBlood {
+            0%, 100% { text-shadow: 0 0 40px #c0392b, 0 0 80px #ff0000; }
+            50% { text-shadow: 0 0 70px #c0392b, 0 0 120px #ff0000; }
+        }
+
+        .subtitle {
+            font-family: 'UnifrakturCook', cursive;
+            font-size: 32px;
+            color: #e74c3c;
+            margin: 0 0 20px 0;
+            animation: subtitlePulse 2.5s infinite;
+        }
+
+        @keyframes subtitlePulse {
+            0%,100% { opacity: 0.8; transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.08); }
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 800px;
+            margin: 30px auto;
+        }
+
+        .info-box {
+            background: rgba(0,0,0,0.75);
+            border: 2px solid #8B0000;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: left;
+            animation: boxPop 0.8s forwards;
+            box-shadow: 0 0 15px rgba(139,0,0,0.6);
+        }
+
+        .info-box h3 {
+            color: #f1c40f;
+            margin: 0 0 8px 0;
+            font-size: 18px;
+        }
+
+        .rules-list {
+            text-align: left;
+            max-width: 700px;
+            margin: 25px auto;
+            background: rgba(20,0,0,0.8);
+            padding: 20px;
+            border-left: 6px solid #c0392b;
+        }
+
+        .rule {
+            margin: 8px 0;
+            opacity: 0;
+            animation: ruleExplode 0.7s forwards;
+        }
+
+        @keyframes ruleExplode {
+            from { opacity: 0; transform: translateX(-50px) scale(0.8); }
+            to { opacity: 1; transform: translateX(0) scale(1); }
+        }
+
+        .progress-container {
+            margin: 40px auto;
+            width: 60%;
+        }
+
+        .progress {
+            height: 12px;
+            background: #111;
+            border: 3px solid #c0392b;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #c0392b, #ff5555, #c0392b);
+            animation: progressBar 3.5s linear infinite;
+        }
+
+        @keyframes progressBar {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        .map-info {
+            color: #f39c12;
+            font-size: 20px;
+            margin: 15px 0;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 25px;
+            width: 100%;
+            text-align: center;
+            color: #777;
+            font-size: 15px;
+        }
+
+        .particles {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <h1>ORPHEON ROLEPLAY</h1>
+        <p class="subtitle">HARDCORE RP - CHAQUE CHOIX A UN PRIX</p>
+        
+        <div class="map-info">📍 Map : rp_orpheon_v2</div>
+
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>🔥 SERVEUR</h3>
+                <strong>Nom :</strong> Orpheon Roleplay<br>
+                <strong>Mode :</strong> DarkRP Hardcore<br>
+                <strong>Joueurs :</strong> 0/32<br>
+                <strong>Tickrate :</strong> 66
+            </div>
+            <div class="info-box">
+                <h3>⚠️ IMPORTANT</h3>
+                <strong>RP Obligatoire 24/7</strong><br>
+                <strong>FearRP + RealismRP</strong><br>
+                <strong>Actions = Conséquences</strong>
+            </div>
+        </div>
+
+        <div class="rules-list">
+            <strong>📜 RÈGLES DU SERVEUR :</strong><br><br>
+            <div class="rule">• Roleplay obligatoire en permanence</div>
+            <div class="rule">• Aucun MetaGaming / PowerGaming</div>
+            <div class="rule">• Respect et immersion totale</div>
+            <div class="rule">• Pas de NoFearRP</div>
+            <div class="rule">• Cheats = Ban permanent</div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress">
+                <div class="bar"></div>
+            </div>
+            <p style="margin-top:8px; color:#c0392b;">CHARGEMENT DE L'ENFER...</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        discord.gg/orpheonrp • orpheonroleplay.fr • 2026
+    </div>
+
+    <script>
+        // Simple particle effect (blood drops / sparks)
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '6px';
+            particle.style.height = '6px';
+            particle.style.background = '#c0392b';
+            particle.style.borderRadius = '50%';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = '-10px';
+            particle.style.opacity = Math.random() * 0.8 + 0.4;
+            particle.style.zIndex = '5';
+            document.getElementById('particles').appendChild(particle);
+
+            let y = -10;
+            const speed = Math.random() * 4 + 3;
+
+            const fall = setInterval(() => {
+                y += speed;
+                particle.style.top = y + '%';
+                particle.style.opacity -= 0.015;
+                if (y > 110) {
+                    clearInterval(fall);
+                    particle.remove();
+                }
+            }, 30);
+        }
+
+        setInterval(createParticle, 80);
+    </script>
+</body>
+</html>
